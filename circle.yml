@@ -1,0 +1,10 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - gem build onesky-rails.gemspec
+      - curl http://gems.uken.com/upload -X POST -F file=@$(echo onesky-rails*.gem)
